@@ -1,11 +1,16 @@
 
+import Contents from "./Contents";
+import Footer from "./Footer";
+import Header from "./Header";
 
-import Day01 from "./jsx";
+
 
 function App() {
   return (
-    <div>
-      <Day01 />
+    <div className="App">
+      <Header />
+      <Contents />
+      <Footer />
     </div>
   );
 }
