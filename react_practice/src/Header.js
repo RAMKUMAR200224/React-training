@@ -1,11 +1,13 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({title}) => {
   return (
     <header>
-        <h1>To do list</h1>
+        <h1>{title}</h1>
     </header>
   )
 }
-
+Header.defaultProps ={
+  title:"TO DO LIST"
+}
 export default Header
