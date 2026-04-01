@@ -3,7 +3,7 @@ import Content2 from "./Content2"
 import Contents from "./Contents";
 import Footer from "./Footer";
 import Header from "./Header";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import SearchItem from "./SearchItem";
 
 
@@ -11,11 +11,15 @@ import SearchItem from "./SearchItem";
 function App() 
    {
          const [items,setItems] = useState(
-          JSON.parse(localStorage.getItem('todo_list'))
+          []
          )
            
              const[newItem,setNewItem] = useState('')
              const[search,setSearch] = useState('')
+
+             useEffect(()=>{
+              JSON.parse(localStorage.getItem('todo_list'))
+             },[])
 
             const addItem = (item) => {
 
