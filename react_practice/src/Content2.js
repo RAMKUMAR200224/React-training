@@ -34,7 +34,7 @@ const Content2 = ({items,handleCheck,handleDelete}) => {
     //             localStorage.setItem("todo_list",JSON.stringify(listItems))
     //         }
     return(
-        <main>
+        <>
             {(items.length) ?(
                 <ItemsList
                     items = {items}
@@ -65,7 +65,7 @@ const Content2 = ({items,handleCheck,handleDelete}) => {
                 <p style={ {marginTop:"2rem"} }>Your List Is Empyt</p>
             )
         }
-        </main>
+        </>
     )
 }
 
