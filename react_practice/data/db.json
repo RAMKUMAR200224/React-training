@@ -1,19 +1,30 @@
 {
-"items":[
-{
-        "id": 1,
-        "checked": false,
-        "item": "Ramkumar"
-},
-{
-        "id": 2,
-        "checked": true,
-        "item": "Ajithkumar"
-}, 
-{
-        "id": 3,
-        "checked": false,
-        "item": "Keerthi"
-}
-]
+  "items": [
+    {
+      "id": "1",
+      "checked": false,
+      "item": "Ramkumar"
+    },
+    {
+      "id": "2",
+      "checked": true,
+      "item": "Ajithkumar"
+    },
+    {
+      "id": "3",
+      "checked": false,
+      "item": "Keerthi"
+    },
+    {
+      "id": "4",
+      "checked": false,
+      "item": "Rajalakshmi"
+    },
+    {
+      "id": "5",
+      "checked": false,
+      "item": "Gopi Anna"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

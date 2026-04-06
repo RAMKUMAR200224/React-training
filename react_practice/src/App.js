@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { useState ,useEffect} from "react";
 import SearchItem from "./SearchItem";
+import ApiRequest from "./ApiRequest";
 
 
 
@@ -38,26 +39,53 @@ function App()
                
              },[])
 
-            const addItem = (item) => {
+            const addItem =async (item) => {
 
   const id = items.length ? items[items.length - 1].id + 1 : 1;
   const addNewItem = { id, checked: false, item };
   const listItems = [...items, addNewItem];
   
   setItems(listItems);
-  
+
+  const postOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type" : "application/json"
+    },
+    body: JSON.stringify(addNewItem)
+  }
+  const result =await ApiRequest(API_URL,postOptions)
+  if(result) setFetchError(result)
 };
               
-                    const handleCheck = (id) =>{
+                    const handleCheck =async (id) =>{
                         const listItems = items.map((item)=>
                             item.id===id ? {...item,checked:!item.checked} : item)
                         setItems(listItems)
                         
+                        const myIteam = listItems.filter(item => item.id===id)
+                        
+                         const updateOptions = {
+    method: "PATCH",
+    headers: {
+      "Content-Type" : "application/json"
+    },
+    body: JSON.stringify({checked:myIteam[0].checked})
+  }
+  const reqUrl=`${API_URL}/${id}`
+  const result =await ApiRequest(reqUrl,updateOptions)
+  if(result) setFetchError(result)
                     }
-                    const handleDelete =(id)=>{
+                    const handleDelete =async(id)=>{
                         const listItems = items.filter((item)=> 
                             item.id!==id)
                         setItems(listItems)
+                        
+                        const deleteOptions ={ method:"DELETE"}
+
+                        const reqUrl=`${API_URL}/${id}`
+  const result =await ApiRequest(reqUrl,deleteOptions)
+  if(result) setFetchError(result)
                         
                     }
 
